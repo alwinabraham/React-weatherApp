@@ -1,0 +1,28 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('https://source.unsplash.com/1600x900/?landscape');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 630px;
+    background-color: gray;
+}
+h1{
+    margin: 15px 0;
+}
+.main-container{
+    margin-top: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-container{
+    display: flex;
+}
+.image-container h4{
+    padding-left: 20px;
+}
+form{
+    padding: 20px;
+    background-color: white;
+}

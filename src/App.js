@@ -11,7 +11,6 @@ function App() {
   const [description,setDescription] = useState('')
   const [humidity,setHumidity] = useState('')
   const [wind,setWind] = useState('')
-  const [data,setData] = useState('')
 
   useEffect(() => {
     function weather(name){
@@ -28,7 +27,6 @@ function App() {
           let descriptiondata = weather.description
           let winddata = response.data.wind.speed
           setRenderName(renderNameData)
-          setData(response.data.name)
           setTemperature(newTemp)
           setIcon(icondata)
           setHumidity(humiditydata)
@@ -42,24 +40,26 @@ function App() {
     weather(name)
   },[name])
   
-  
-
   return (
     <>
-    <div>
-    <input
-      type="text"
-      name='name'
-      placeholder='Enter your city'
-      value={name}
-      onChange={(e)=>setname(e.target.value)} />
-    </div>
-    <div>
-      <h1>{renderName}</h1>
-      <h1>{temperature}C</h1>
-      <span><img src={`http://openweathermap.org/img/wn/${icon}.png`}/><h4>{description}</h4></span>
-      <h1>{humidity}</h1>
-      <h1>{wind}</h1>
+    <div className='main-container'>
+      <form>
+      <div>
+      <input
+        type="text"
+        name='name'
+        placeholder='Enter your city'
+        value={name}
+        onChange={(e)=>setname(e.target.value)} />
+      </div>
+      <div>
+        <h1>{renderName}</h1>
+        <h1>{temperature}°C</h1>
+        <div className='image-container'><img src={`http://openweathermap.org/img/wn/${icon}.png`}/><h4>{description}</h4></div>
+        <p>Humidity:{humidity}</p>
+        <p>Wind:{wind}</p>
+      </div>
+      </form>
     </div>
     </>
   );
